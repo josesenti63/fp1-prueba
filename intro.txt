@@ -1,0 +1,43 @@
+Proyecto Django para aplicacion WEB torneo de futbol.
+Para presentar en workana
+
+Habilitar Git para el control de versiones:
+$ git --version 
+git version 2.32.1(Apple Git-123)
+$ git config --global user.name"josesenti63"
+$ git config --global user.email"jfsentinelli@yahoo.com.ar"
+$ git config --global init.defaultBranch main
+
+Probaremos Docker para llevar a cabo el Proyecto
+Comprobamos version de Docker instalada:
+$ docker --version
+Docker version 20.10.22, build 3a2c30b
+
+Instalar Django:
+$ mkdir fp1-prueba
+cd fp1-prueba
+Activar el ambiente virtual:
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install django==4.0.0
+
+Probar Django:
+$ django-admin startproject futbolpepe1
+$ python manage.py migrate
+$ python manage.py runserver
+
+App Paginas:
+python manage.py startapp paginas
+# futbolpepe1/settings.py
+Agregar:
+#Local
+"paginas.apps.PaginasConfig"
+
+Luego seteamos la URL
+#futbolpepe1/urls.py
+agregar include en la importacion
+agregar la linea path("", include("paginasurls"))
+
+En paginas/views.py agregamos "Hola Futbol Pepe"
+
+Este lo referenciamos creando un paginas/urls.py 
